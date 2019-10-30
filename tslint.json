@@ -1,0 +1,30 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-config-airbnb"
+  ],
+  "rules": {
+    "max-line-length": [ true, 160 ],
+    "ter-indent": [ true, 4, { "SwitchCase": 1 } ],
+    "object-literal-sort-keys": false,
+    "arrow-return-shorthand": false,
+    "interface-name": [ true, "never-prefix" ],
+    "deprecation": true,
+    "ban-ts-ignore": true,
+    "no-duplicate-imports": true,
+    "no-require-imports": true,
+    "no-increment-decrement": false,
+    "ter-padded-blocks": [true, "never"],
+    "no-inferrable-types": [true, "ignore-params"],
+    "no-redundant-jsdoc": true,
+    "typedef": true,
+    "forin": false,
+    "prefer-object-spread": true,
+    "no-invalid-template-strings": true,
+    "no-magic-numbers": true,
+    "binary-expression-operand-order": true,
+    "no-non-null-assertion": true,
+    "prefer-while": true,
+    "interface-over-type-literal": false
+  }
+}

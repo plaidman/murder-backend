@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "outDir": "build",
+    "module": "commonjs",
+    "target": "es2017",
+    "lib": [
+      "es2017",
+      "dom",
+      "esnext"
+    ],
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "sourceMap": false,
+    "alwaysStrict": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "tests/**/*.ts",
+    "bin/**/*.ts",
+    "!node_modules/**/*"
+  ]
+}
