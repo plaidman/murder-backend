@@ -20,7 +20,7 @@ io.on('connection', (socket) => {
     // if so, emit resume game and pass along the game status
 
     socket.on('joinGame', joinGameHandlerFactory(socket));
-    socket.on('testing', (message) => { debug('testing', message); });
+    socket.on('testing', (message) => { debug('testing', message); socket.emit('testing', message); });
 });
 
 app.use('/', express.static(`${__dirname}/../public`));

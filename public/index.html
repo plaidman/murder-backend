@@ -2,60 +2,11 @@
 <html>
   <head>
     <title>Murder at Fieri Manor</title>
-
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet" />
-    <link href="/style.css" rel="stylesheet" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
 
   <body>
-    <nav>
-      <div class="nav-wrapper">
-        <a href="#" class="container brand-logo">Murder at Fieri Manor</a>
-      </div>
-    </nav>
-
-    <div class="container">
-      <form action="/">
-        <div class="input-field">
-          <input autocomplete="off" id='gameId' type="text" />
-          <label for="gameId">game id</label>
-        </div>
-
-        <a class="waves-effect waves-light btn" id="gameSubmit">join game</a>
-      </form>
-
-      <form action="/" id="player">
-        <div class="input-field">
-          <input autocomplete="off" id="player.name" name="name" type="text" />
-          <label for="player.name">player name</label>
-        </div>
-
-        <div class="input-field">
-          <input autocomplete="off" id="player.expertise" name="expertise" type="text" />
-          <label for="player.expertise">player expertise</label>
-        </div>
-
-        <a class="waves-effect waves-light btn">player info</a>
-      </form>
-
-      <form action="/" id="message">
-        <div class="input-field">
-          <input autocomplete="off" id="messageText" name="message" type="text" />
-          <label for="messageText">message</label>
-        </div>
-
-        <a class="waves-effect waves-light btn" id="messageSubmit">player info</a>
-      </form>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-    <script src="game.js"></script>
-    <script src="testing.js"></script>
-    <script src="index.js"></script>
+    <script type="text/javascript">
+      window.location = 'http://localhost:4233';
+    </script>
   </body>
 </html>
