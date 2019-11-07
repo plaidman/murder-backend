@@ -5,6 +5,7 @@ import { environment } from './common/environment';
 import { generateNewGame } from './common/gameModels';
 import { debug, info } from './common/logger';
 import { setupPlayerHandlerFactory } from './events/setupPlayer';
+import { startGameHandler } from './events/startGame';
 
 const app = express();
 const server = new Server(app);
@@ -19,6 +20,9 @@ io.on('connection', (socket) => {
     // if so, emit resume game and pass along the game status
 
     socket.on('setupPlayer', setupPlayerHandlerFactory(socket));
+    socket.on('startGame', startGameHandler);
+    socket.on('requestGame', () => { socket.emit('gameUpdated', { game }); });
+
     socket.on('testing', (message) => { debug('testing', message); socket.emit('testing', message); });
 });
 

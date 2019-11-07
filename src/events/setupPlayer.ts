@@ -1,7 +1,7 @@
 import { Socket } from 'socket.io';
 import { game, io } from '../app';
 import { environment } from '../common/environment';
-import { CardType } from '../common/gameModels';
+import { generatePlayer } from '../common/gameModels';
 import { SetupPlayer } from '../common/socketModels';
 import { randString } from '../common/utils';
 
@@ -10,36 +10,17 @@ export function setupPlayerHandlerFactory(socket: Socket) {
         // if game is not in 'gathering' state, then emit gameJoinResume (after creating the player)
 
         const playerId = randString(environment.playerIdLength);
+        game.accusorIds.push(playerId);
 
-        game.players[playerId] = {
-            canFindEvidence: true,
-            expertise: formData.expertise,
-            handCards: [],
-            id: playerId,
-            name: formData.name,
-        };
+        game.players[playerId] = generatePlayer(
+            playerId,
+            formData.name,
+            formData.expertise,
+            formData.weapons,
+            formData.evidence,
+        );
 
-        for (const weapon of formData.weapons) {
-            game.players[playerId].handCards.push({
-                accusedPlayerId: '',
-                description: weapon,
-                expertPlayerId: playerId,
-                expertise: formData.expertise,
-                isConclusive: false,
-                type: CardType.WEAPON,
-            });
-        }
-
-        for (const evidence of formData.evidence) {
-            game.players[playerId].handCards.push({
-                accusedPlayerId: '',
-                description: evidence,
-                expertPlayerId: playerId,
-                expertise: formData.expertise,
-                isConclusive: false,
-                type: CardType.EVIDENCE,
-            });
-        }
+        game.messages.push(`player <${formData.name}> has joined the game`);
 
         socket.emit('playerAdded', { playerId, game });
         io.emit('gameUpdated', { game });
