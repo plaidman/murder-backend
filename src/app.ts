@@ -1,8 +1,8 @@
 import express from 'express';
 import { Server } from 'http';
 import socketIo from 'socket.io';
+import { generateNewGame } from './actions/newPlayer';
 import { environment } from './common/environment';
-import { generateNewGame } from './common/gameModels';
 import { debug, info } from './common/logger';
 import { setupPlayerHandlerFactory } from './events/setupPlayer';
 import { startGameHandler } from './events/startGame';
