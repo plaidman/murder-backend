@@ -2,7 +2,7 @@ import { Card, CardType, Game, GameState, Player } from '../common/gameModels';
 
 export function generateNewGame(): Game {
     return {
-        accusedId: '',
+        accuseeId: '',
         accusorIds: ['one', 'two', 'three'],
         currentAccusor: 0,
         players: {
@@ -85,7 +85,7 @@ function generateCard(
         expertise,
         expertPlayerId,
         type,
-        accusedPlayerId: '',
+        accuseeId: '',
         isConclusive: false,
     };
 }

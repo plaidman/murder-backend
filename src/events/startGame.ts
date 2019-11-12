@@ -1,8 +1,8 @@
-import { dealEvidenceCards } from '../actions/dealEvidenceCards';
 import { shuffleCards } from '../actions/shuffleCards';
 import { game, io } from '../app';
 import { GameState } from '../common/gameModels';
 import { StartGame } from '../common/socketModels';
+import { dealAccuseHandler } from './dealAccuse';
 
 export function startGameHandler(formData: StartGame) {
     game.state = GameState.SHUFFLE;
@@ -11,7 +11,5 @@ export function startGameHandler(formData: StartGame) {
     io.emit('gameUpdated', { game });
     shuffleCards(game);
 
-    game.state = GameState.COLLECT;
-    dealEvidenceCards(game);
-    io.emit('gameUpdated', { game });
+    dealAccuseHandler();
 }
