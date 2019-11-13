@@ -6,7 +6,7 @@ const COLLECT_PAUSE_TIME = 3000;
 
 export function dealAccuseHandler() {
     game.state = GameState.COLLECT;
-    game.messages.push('dealing evidence cards to everybody');
+    game.messages.unshift('dealing evidence cards to everybody');
     dealEvidenceCards(game);
     io.emit('gameUpdated', { game });
 
@@ -21,7 +21,7 @@ function accuseHandler() {
     const accusee = game.players[accuseeId];
 
     game.state = GameState.ACCUSE;
-    game.messages.push(`<${accusor.name}> is now accusing <${accusee.name}>`);
+    game.messages.unshift(`<${accusor.name}> is now accusing <${accusee.name}>`);
     game.accuseeId = accuseeId;
     io.emit('gameUpdated', { game });
 }

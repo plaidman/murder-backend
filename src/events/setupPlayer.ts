@@ -9,13 +9,7 @@ export function setupPlayerHandlerFactory(socket: Socket) {
     return (formData: SetupPlayer) => {
         // if game is not in 'gathering' state, reject the request
 
-        game.messages.push(`player <${formData.name}> has joined the game`);
-        game.messages.push(`player <${formData.name}> has joined the game`);
-        game.messages.push(`player <${formData.name}> has joined the game`);
-        game.messages.push(`player <${formData.name}> has joined the game`);
-        game.messages.push(`player <${formData.name}> has joined the game`);
-        game.messages.push(`player <${formData.name}> has joined the game`);
-        game.messages.push(`player <${formData.name}> has joined the game`);
+        game.messages.unshift(`player <${formData.name}> has joined the game`);
 
         const playerId = randString(environment.playerIdLength);
         game.accusorIds.push(playerId);

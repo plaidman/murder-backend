@@ -6,8 +6,8 @@ import { dealAccuseHandler } from './dealAccuse';
 
 export function startGameHandler(formData: StartGame) {
     game.state = GameState.SHUFFLE;
-    game.messages.push(`game started by <${game.players[formData.playerId].name}>`);
-    game.messages.push('now shuffling players and cards');
+    game.messages.unshift(`game started by <${game.players[formData.playerId].name}>`);
+    game.messages.unshift('now shuffling players and cards');
     io.emit('gameUpdated', { game });
     shuffleCards(game);
 
