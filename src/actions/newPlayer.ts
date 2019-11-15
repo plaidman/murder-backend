@@ -66,7 +66,7 @@ export function generatePlayer(
                 singularEvidence,
                 id,
                 expertise,
-                CardType.WEAPON,
+                CardType.EVIDENCE,
             ),
         );
     }
@@ -86,6 +86,7 @@ function generateCard(
         expertPlayerId,
         type,
         accuseeId: '',
+        accuseeName: '',
         isConclusive: false,
     };
 }

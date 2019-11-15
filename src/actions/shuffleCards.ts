@@ -20,6 +20,7 @@ export function shuffleCards(game: Game) {
 
     for (let i = 0; i < accuseeIds.length; i++) {
         game.tableCards[i].accuseeId = accuseeIds[i];
+        game.tableCards[i].accuseeName = game.players[accuseeIds[i]].name;
     }
 }
 

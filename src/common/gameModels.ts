@@ -1,6 +1,7 @@
 export enum CardType {
     WEAPON = 'weapon',
     EVIDENCE = 'evidence',
+    HIDDEN = 'hidden',
 }
 
 export enum GameState {
@@ -42,6 +43,7 @@ export interface Card {
     type: CardType;
     expertise: string;
     expertPlayerId: string;
+    accuseeName: string;
     accuseeId: string;
     isConclusive: boolean; // if true, permanently face up and can't be traded
 }
