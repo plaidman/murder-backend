@@ -5,6 +5,7 @@ import { generateNewGame } from './actions/newPlayer';
 import { environment } from './common/environment';
 import { debug, info } from './common/logger';
 import { setupPlayerHandlerFactory } from './events/setupPlayer';
+import { startAccusationHandler } from './events/startAccusation';
 import { startGameHandler } from './events/startGame';
 
 const app = express();
@@ -14,13 +15,10 @@ export const io = socketIo(server);
 export const game = generateNewGame();
 
 io.on('connection', (socket) => {
-    // const playerId = socket.handshake.query.playerId;
-    // if (playerId !== 'null') { }
-    // take these and lookup game state and if game/player exists
-    // if so, emit resume game and pass along the game status
-
     socket.on('setupPlayer', setupPlayerHandlerFactory(socket));
     socket.on('startGame', startGameHandler);
+    socket.on('startAccusation', startAccusationHandler);
+
     socket.on('requestGame', () => { socket.emit('gameUpdated', { game }); });
 
     socket.on('testing', (message) => { debug('testing', message); socket.emit('testing', message); });

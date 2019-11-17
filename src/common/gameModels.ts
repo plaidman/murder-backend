@@ -21,6 +21,7 @@ export enum GameState {
 }
 
 export interface Game {
+    gmPlayerId: string;
     players: Record<string, Player>;
     tableCards: Card[];
     state: GameState;

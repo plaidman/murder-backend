@@ -2,6 +2,7 @@ import { Card, CardType, Game, GameState, Player } from '../common/gameModels';
 
 export function generateNewGame(): Game {
     return {
+        gmPlayerId: '',
         accuseeId: '',
         accusorIds: ['one', 'two', 'three'],
         currentAccusor: 0,
