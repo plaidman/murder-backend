@@ -1,33 +1,39 @@
 import { Card, CardType, Game, GameState, Player } from '../common/gameModels';
+import { randString } from '../common/utils';
+
+const CARD_ID_LENGTH = 10;
 
 export function generateNewGame(): Game {
     return {
+        passedTheBlame: false,
         gmPlayerId: '',
         accuseeId: '',
-        accusorIds: ['one', 'two', 'three'],
+        accusorIds: [
+            // 'one', 'two', 'three',
+        ],
         currentAccusor: 0,
         players: {
-            one: generatePlayer(
-                'one',
-                'oneName',
-                'oneExp',
-                ['a', 'b'],
-                ['c', 'd', 'e', 'f'],
-            ),
-            two: generatePlayer(
-                'two',
-                'twoName',
-                'twoExp',
-                ['g', 'h'],
-                ['i', 'j', 'k', 'l'],
-            ),
-            three: generatePlayer(
-                'three',
-                'threeName',
-                'threeExp',
-                ['m', 'n'],
-                ['o', 'p', 'q', 'r'],
-            ),
+            // one: generatePlayer(
+            //     'one',
+            //     'oneName',
+            //     'oneExp',
+            //     ['a', 'b'],
+            //     ['c', 'd', 'e', 'f'],
+            // ),
+            // two: generatePlayer(
+            //     'two',
+            //     'twoName',
+            //     'twoExp',
+            //     ['g', 'h'],
+            //     ['i', 'j', 'k', 'l'],
+            // ),
+            // three: generatePlayer(
+            //     'three',
+            //     'threeName',
+            //     'threeExp',
+            //     ['m', 'n'],
+            //     ['o', 'p', 'q', 'r'],
+            // ),
         },
         state: GameState.GATHER,
         tableCards: [],
@@ -86,6 +92,7 @@ function generateCard(
         expertise,
         expertPlayerId,
         type,
+        id: randString(CARD_ID_LENGTH),
         accuseeId: '',
         accuseeName: '',
         isConclusive: false,

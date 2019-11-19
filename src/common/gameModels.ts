@@ -10,8 +10,8 @@ export enum GameState {
     COLLECT = 'collect', // everybody is dealt an evidence card and wait for everybody to look
     ACCUSE = 'accuse', // reveal accusor's cards wait for accusor explanation
     REBUTTAL = 'rebuttal', // wait for accusee to choose 'pass the blame (and another card)' or 'explain the evidence'
-    REBUTTAL_SWAP = 'rebuttalSwap', // wait for accusee to choose another card (if they pass the blame)
-    REBUTTAL_EXPLAIN = 'rebuttalExplain', // wait for accusee to finish their explanation
+    PASS_BLAME = 'passBlame', // wait for accusee to choose another card (if they pass the blame)
+    EXPLAIN = 'explain', // wait for accusee to finish their explanation
     PEEK = 'peek', // wait for accusor to peek at an accusee card (if they explain the evidence)
     EXPERT = 'expert', // wait for expert to choose conclusive or inconclusive
     // then goes back to collect
@@ -21,6 +21,7 @@ export enum GameState {
 }
 
 export interface Game {
+    passedTheBlame: boolean;
     gmPlayerId: string;
     players: Record<string, Player>;
     tableCards: Card[];
@@ -40,6 +41,7 @@ export interface Player {
 }
 
 export interface Card {
+    id: string;
     description: string;
     type: CardType;
     expertise: string;
