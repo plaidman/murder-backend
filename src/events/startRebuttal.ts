@@ -8,7 +8,7 @@ export function startRebuttalHandler() {
 
     const accusee = game.players[game.accuseeId];
 
-    game.passedTheBlame = false;
+    game.accuseeSwapCardId = undefined;
     game.state = GameState.REBUTTAL;
     game.messages.unshift(`<${accusee.name}> is explaining the evidence`);
     io.emit('gameUpdated', { game });

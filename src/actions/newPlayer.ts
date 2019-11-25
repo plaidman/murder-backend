@@ -5,7 +5,7 @@ const CARD_ID_LENGTH = 10;
 
 export function generateNewGame(): Game {
     return {
-        passedTheBlame: false,
+        accuseeSwapCardId: undefined,
         gmPlayerId: '',
         accuseeId: '',
         accuserIds: [

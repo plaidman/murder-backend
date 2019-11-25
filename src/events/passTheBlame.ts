@@ -6,7 +6,6 @@ export function passTheBlameHandler() {
         return;
     }
 
-    game.passedTheBlame = true;
     game.state = GameState.PASS_BLAME;
     io.emit('gameUpdated', { game });
 }

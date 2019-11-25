@@ -21,7 +21,7 @@ export enum GameState {
 }
 
 export interface Game {
-    passedTheBlame: boolean;
+    accuseeSwapCardId?: string;
     gmPlayerId: string;
     players: Record<string, Player>;
     tableCards: Card[];

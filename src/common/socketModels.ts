@@ -8,3 +8,7 @@ export interface SetupPlayer {
 export interface StartGame {
     playerId: string;
 }
+
+export interface ExplainEvidence {
+    cardId?: string;
+}
