@@ -24,31 +24,3 @@
 1) run `yarn snyk-test` to run through snyk vulnerability analyzer
     * you may need to set up an account to run this locally
 1) run `yarn prepush` to run all pre-push hooks
-
-## contributing
-* code is expected to be linted and 100% unit tested before committing, or have a damn good reason why it's excluded from coverage report
-
-## current dependencies TODO
-* environment
-    * `nodemon` - watch files in dev to restart server
-    * `typescript`/`ts-node` - compiling and running the app
-* build tools
-    * `yargs` - command line arguments for CLI commands
-    * `yarn` - package manager and CLI convenience commands
-* quality checks
-    * `tslint` - code styling checks
-    * `jest` - unit test framework
-    * `snyk` - vulnerability scan
-    * `gulp` - report files that aren't unit tested
-* application
-    * `aws-sdk` - connection to DB
-    * `express` - web server framework
-    * `inversify` - DI container
-    * `bcryptjs` - hashing passwords
-    * `uuid` - generating unique ids
-    * `moment` - processing timestamps
-    * `dotenv` - dev environment variables
-* logging
-    * `pino` - fast logging library
-    * `pump`/`through2`/`split2`/`chalk`/`stringify-object`
-        * offloaded processing of log messages

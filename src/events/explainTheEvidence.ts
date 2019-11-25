@@ -9,6 +9,7 @@ export function explainTheEvidenceHandler(formData: ExplainEvidence) {
     }
 
     if (formData.cardId) {
+        // if we're coming from the 'pass the blame' flow
         const accuserId = game.accuserIds[game.currentAccuser];
         const accuserCards = game.players[accuserId].handCards;
         const accusationCard = accuserCards[accuserCards.length - 1];
