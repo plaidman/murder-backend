@@ -6,14 +6,14 @@ export function startAccusationHandler() {
         return;
     }
 
-    const accusorId = game.accusorIds[game.currentAccusor];
-    const accusor = game.players[accusorId];
-    const accusorCards = accusor.handCards;
-    const accuseeId = accusorCards[accusorCards.length - 1].accuseeId;
+    const accuserId = game.accuserIds[game.currentAccuser];
+    const accuser = game.players[accuserId];
+    const accuserCards = accuser.handCards;
+    const accuseeId = accuserCards[accuserCards.length - 1].accuseeId;
     const accusee = game.players[accuseeId];
 
     game.state = GameState.ACCUSE;
-    game.messages.unshift(`<${accusor.name}> is now accusing <${accusee.name}>`);
+    game.messages.unshift(`<${accuser.name}> is now accusing <${accusee.name}>`);
     game.accuseeId = accuseeId;
     io.emit('gameUpdated', { game });
 }

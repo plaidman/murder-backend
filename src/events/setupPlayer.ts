@@ -15,7 +15,7 @@ export function setupPlayerHandlerFactory(socket: Socket) {
         game.messages.unshift(`player <${formData.name}> has joined the game`);
 
         const playerId = randString(environment.playerIdLength);
-        game.accusorIds.push(playerId);
+        game.accuserIds.push(playerId);
 
         game.players[playerId] = generatePlayer(
             playerId,

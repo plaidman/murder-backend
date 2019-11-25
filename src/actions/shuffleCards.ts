@@ -14,7 +14,7 @@ export function shuffleCards(game: Game) {
         movePlayerCardsToTable(player, game.tableCards);
     }
 
-    shuffle(game.accusorIds);
+    shuffle(game.accuserIds);
     shuffle(game.tableCards);
     shuffle(accuseeIds);
 

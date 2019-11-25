@@ -8,10 +8,10 @@ export function generateNewGame(): Game {
         passedTheBlame: false,
         gmPlayerId: '',
         accuseeId: '',
-        accusorIds: [
+        accuserIds: [
             // 'one', 'two', 'three',
         ],
-        currentAccusor: 0,
+        currentAccuser: 0,
         players: {
             // one: generatePlayer(
             //     'one',
