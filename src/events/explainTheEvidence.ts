@@ -21,7 +21,7 @@ export function explainTheEvidenceHandler(formData: ExplainEvidence) {
         }
     }
 
-    game.state = GameState.PEEK;
+    game.state = GameState.EXPLAIN;
     io.emit('gameUpdated', { game });
 }
 
