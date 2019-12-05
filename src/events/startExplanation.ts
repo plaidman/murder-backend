@@ -3,7 +3,7 @@ import { game, io } from '../app';
 import { Card, GameState } from '../common/gameModels';
 import { ExplainEvidence } from '../common/socketModels';
 
-export function explainTheEvidenceHandler(formData: ExplainEvidence) {
+export function startExplanationHandler(formData: ExplainEvidence) {
     if (![GameState.REBUTTAL, GameState.PASS_BLAME].includes(game.state)) {
         return;
     }

@@ -12,7 +12,7 @@ export enum GameState {
     REBUTTAL = 'rebuttal', // wait for accusee to choose 'pass the blame (and another card)' or 'explain the evidence'
     PASS_BLAME = 'passBlame', // wait for accusee to choose another card (if they pass the blame)
     EXPLAIN = 'explain', // wait for accusee to finish their explanation
-    PEEK = 'peek', // wait for accuser to peek at an accusee card (if they explain the evidence)
+    PEEK = 'peek', // wait for accuser to peek at an accusee card (if explained) or the swapped card (if passed)
     EXPERT = 'expert', // wait for expert to choose conclusive or inconclusive
     // then goes back to collect
     REVELATION = 'revelation', // at any time, someone can make a thrilling revelation
@@ -29,6 +29,7 @@ export interface Game {
     accuserIds: string[];
     currentAccuser: number;
     accuseeId: string;
+    expertId: string;
     messages: string[];
 }
 
@@ -45,7 +46,7 @@ export interface Card {
     description: string;
     type: CardType;
     expertise: string;
-    expertPlayerId: string;
+    expertId: string;
     accuseeName: string;
     accuseeId: string;
     isConclusive: boolean; // if true, permanently face up and can't be traded

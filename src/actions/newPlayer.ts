@@ -8,6 +8,7 @@ export function generateNewGame(): Game {
         accuseeSwapCardId: undefined,
         gmPlayerId: '',
         accuseeId: '',
+        expertId: '',
         accuserIds: [
             // 'one', 'two', 'three',
         ],
@@ -83,15 +84,15 @@ export function generatePlayer(
 
 function generateCard(
     description: string,
-    expertPlayerId: string,
+    expertId: string,
     expertise: string,
     type: CardType,
 ): Card {
     return {
         description,
         expertise,
-        expertPlayerId,
         type,
+        expertId,
         id: randString(CARD_ID_LENGTH),
         accuseeId: '',
         accuseeName: '',

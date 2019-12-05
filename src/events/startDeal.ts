@@ -10,6 +10,7 @@ export function startDealHandler() {
     game.state = GameState.COLLECT;
     game.messages.unshift('dealing evidence cards to everybody');
     dealEvidenceCards(game);
+    // todo clean up testing
     dealEvidenceCards(game);
     dealEvidenceCards(game);
     io.emit('gameUpdated', { game });

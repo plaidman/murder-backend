@@ -5,11 +5,12 @@ import { generateNewGame } from './actions/newPlayer';
 import { environment } from './common/environment';
 import { Game } from './common/gameModels';
 import { debug, info } from './common/logger';
-import { explainTheEvidenceHandler } from './events/explainTheEvidence';
 import { passTheBlameHandler } from './events/passTheBlame';
 import { resetGame } from './events/resetGame';
 import { setupPlayerHandlerFactory } from './events/setupPlayer';
 import { startAccusationHandler } from './events/startAccusation';
+import { startAccuserPeekHandler } from './events/startAccuserPeek';
+import { startExplanationHandler } from './events/startExplanation';
 import { startGameHandler } from './events/startGame';
 import { startRebuttalHandler } from './events/startRebuttal';
 
@@ -25,7 +26,8 @@ io.on('connection', (socket) => {
     socket.on('startAccusation', startAccusationHandler);
     socket.on('startRebuttal', startRebuttalHandler);
     socket.on('passTheBlame', passTheBlameHandler);
-    socket.on('explainTheEvidence', explainTheEvidenceHandler);
+    socket.on('startExplanation', startExplanationHandler);
+    socket.on('startAccuserPeek', startAccuserPeekHandler);
 
     socket.on('resetGame', resetGame);
     socket.on('refreshGame', () => { socket.emit('gameUpdated', { game }); });
